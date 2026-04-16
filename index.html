@@ -2,71 +2,149 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Produto | Santal Parfums</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santal Parfums | Referência em Perfumes de Nicho e Decants</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
-        :root { --gold: #c5a028; --black: #111; --white: #fff; }
-        body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--black); margin: 0; padding: 20px; }
-        
-        .product-page { max-width: 1000px; margin: auto; display: flex; gap: 40px; flex-wrap: wrap; }
-        .product-image { flex: 1; min-width: 300px; border: 1px solid #eee; }
-        .product-image img { width: 100%; display: block; }
-        
-        .product-details { flex: 1; min-width: 300px; }
-        h1 { font-size: 28px; text-transform: uppercase; letter-spacing: 1px; }
-        .brand { color: #888; text-transform: uppercase; font-size: 14px; margin-bottom: 10px; }
-        
-        .price-tag { font-size: 32px; font-weight: bold; color: var(--gold); margin: 20px 0; }
-        
-        .selector-label { font-weight: bold; margin-bottom: 10px; display: block; }
-        select { width: 100%; padding: 12px; border: 1px solid #ccc; font-size: 16px; outline: none; cursor: pointer; }
-        select:focus { border-color: var(--gold); }
+        :root { --gold: #d4af37; --black: #0a0a0a; --dark-gray: #1a1a1a; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { background-color: var(--white); color: var(--black); }
 
-        .btn-cart { background: var(--black); color: var(--gold); width: 100%; padding: 18px; border: none; 
-                    font-weight: bold; text-transform: uppercase; margin-top: 25px; cursor: pointer; transition: 0.3s; }
-        .btn-cart:hover { background: #333; }
+        /* HEADER & NAV */
+        header { background: var(--black); color: var(--gold); padding: 15px 5%; text-align: center; border-bottom: 2px solid var(--gold); }
+        .logo { font-size: 32px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; }
+        
+        nav { background: #000; padding: 12px; display: flex; justify-content: center; gap: 25px; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: #fff; text-decoration: none; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        nav a:hover { color: var(--gold); }
 
-        .shipping-info { margin-top: 20px; font-size: 13px; color: #666; border-top: 1px solid #eee; padding-top: 15px; }
+        /* BANNER */
+        .hero { height: 400px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://unsplash.com'); 
+                background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center; }
+        .hero h2 { font-size: 45px; letter-spacing: 2px; text-transform: uppercase; }
+
+        /* VITRINE DE PRODUTOS */
+        .section-title { text-align: center; margin: 50px 0 30px; font-size: 28px; text-transform: uppercase; letter-spacing: 2px; }
+        .grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 20px; }
+
+        .card { border: 1px solid #eee; padding: 20px; transition: 0.4s; position: relative; display: flex; flex-direction: column; align-items: center; }
+        .card:hover { border-color: var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .card img { width: 100%; height: 250px; object-fit: contain; margin-bottom: 15px; }
+        .card .brand { font-size: 12px; color: #888; text-transform: uppercase; }
+        .card h3 { font-size: 18px; margin: 10px 0; height: 45px; text-align: center; }
+
+        /* SELETOR DE ML */
+        .size-selector { width: 100%; margin: 15px 0; }
+        .size-selector select { width: 100%; padding: 10px; border: 1px solid #ddd; background: #fff; cursor: pointer; font-weight: 600; }
+
+        .price { font-size: 22px; font-weight: bold; color: var(--black); margin-bottom: 20px; }
+        .price span { color: var(--gold); }
+
+        .btn-buy { background: var(--black); color: var(--gold); border: none; width: 100%; padding: 15px; font-weight: bold; 
+                    text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .btn-buy:hover { background: #333; color: #fff; }
+
+        footer { background: var(--black); color: #fff; padding: 40px 5%; text-align: center; margin-top: 50px; }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff; width: 60px; height: 60px; 
+                          border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; }
     </style>
 </head>
 <body>
 
-<div class="product-page">
-    <div class="product-image">
-        <!-- Substitua pelo link da imagem do perfume -->
-        <img src="https://placeholder.com" alt="Perfume">
+<header>
+    <div class="logo">Santal Parfums</div>
+</header>
+
+<nav>
+    <a href="#">Lançamentos</a>
+    <a href="#">Nicho</a>
+    <a href="#">Árabes</a>
+    <a href="#">Decants</a>
+    <a href="#">Promoções</a>
+</nav>
+
+<section class="hero">
+    <div>
+        <h2>Santal Parfums</h2>
+        <p>A melhor experiência em decants de luxo e perfumes importados.</p>
+    </div>
+</section>
+
+<h2 class="section-title">Destaques em Decants</h2>
+
+<div class="grid">
+    <!-- Produto 1: Exemplo de Perfume de Nicho -->
+    <div class="card">
+        <span class="brand">Parfums de Marly</span>
+        <img src="https://placeholder.com" alt="Layton">
+        <h3>Layton Royal Essence</h3>
+        
+        <div class="size-selector">
+            <select class="select-price" onchange="updateCardPrice(this)">
+                <option value="55.00" data-name="5ml">Decant 5ml - R$ 55,00</option>
+                <option value="98.00" data-name="10ml">Decant 10ml - R$ 98,00</option>
+                <option value="145.00" data-name="15ml">Decant 15ml - R$ 145,00</option>
+                <option value="190.00" data-name="20ml">Decant 20ml - R$ 190,00</option>
+                <option value="1950.00" data-name="100ml">Frasco Lacrado 100ml - R$ 1.950,00</option>
+            </select>
+        </div>
+
+        <div class="price">R$ <span class="price-value">55,00</span></div>
+        <button class="btn-buy" onclick="buyWhatsApp('Layton', this)">
+            <i class="fab fa-whatsapp"></i> Comprar Agora
+        </button>
     </div>
 
-    <div class="product-details">
-        <div class="brand">Parfums de Marly</div>
-        <h1>Layton - Royal Essence</h1>
+    <!-- Produto 2: Exemplo de Perfume Árabe -->
+    <div class="card">
+        <span class="brand">Lattafa</span>
+        <img src="https://placeholder.com" alt="Asad">
+        <h3>Asad Lattafa</h3>
         
-        <p>Escolha o tamanho desejado (Decant ou Lacrado):</p>
-        
-        <label class="selector-label">Volume:</label>
-        <select id="size-selector" onchange="updatePrice()">
-            <option value="45.00" data-size="5ml">Decant 5ml - R$ 45,00</option>
-            <option value="85.00" data-size="10ml">Decant 10ml - R$ 85,00</option>
-            <option value="120.00" data-size="15ml">Decant 15ml - R$ 120,00</option>
-            <option value="155.00" data-size="20ml">Decant 20ml - R$ 155,00</option>
-            <option value="1890.00" data-size="100ml">Frasco Lacrado 100ml - R$ 1.890,00</option>
-        </select>
-
-        <div class="price-tag" id="display-price">R$ 45,00</div>
-
-        <button class="btn-cart">Adicionar à Sacola</button>
-
-        <div class="shipping-info">
-            🚚 Enviamos para todo o Brasil com Seguro.<br>
-            ✨ Garantia de Originalidade Santal Parfums.
+        <div class="size-selector">
+            <select class="select-price" onchange="updateCardPrice(this)">
+                <option value="25.00" data-name="5ml">Decant 5ml - R$ 25,00</option>
+                <option value="45.00" data-name="10ml">Decant 10ml - R$ 45,00</option>
+                <option value="65.00" data-name="15ml">Decant 15ml - R$ 65,00</option>
+                <option value="85.00" data-name="20ml">Decant 20ml - R$ 85,00</option>
+                <option value="340.00" data-name="100ml">Frasco Lacrado 100ml - R$ 340,00</option>
+            </select>
         </div>
+
+        <div class="price">R$ <span class="price-value">25,00</span></div>
+        <button class="btn-buy" onclick="buyWhatsApp('Asad Lattafa', this)">
+            <i class="fab fa-whatsapp"></i> Comprar Agora
+        </button>
     </div>
 </div>
 
+<footer>
+    <p>&copy; 2024 Santal Parfums - Todos os direitos reservados.<br>
+    Perfumes 100% Originais e Procedência Garantida.</p>
+</footer>
+
+<a href="https://wa.me" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
 <script>
-    function updatePrice() {
-        const selector = document.getElementById('size-selector');
-        const price = selector.value;
-        document.getElementById('display-price').innerText = "R$ " + parseFloat(price).toLocaleString('pt-BR', {minimumFractionDigits: 2});
+    function updateCardPrice(selectElement) {
+        const price = selectElement.value;
+        const priceDisplay = selectElement.closest('.card').querySelector('.price-value');
+        priceDisplay.innerText = parseFloat(price).toLocaleString('pt-BR', {minimumFractionDigits: 2});
+    }
+
+    function buyWhatsApp(productName, buttonElement) {
+        const card = buttonElement.closest('.card');
+        const select = card.querySelector('select');
+        const size = select.options[select.selectedIndex].getAttribute('data-name');
+        const price = select.value;
+        
+        const phoneNumber = "SEUNUMERO"; // COLOQUE SEU WHATSAPP AQUI
+        const message = `Olá Santal Parfums! Gostaria de comprar: ${productName} no tamanho ${size} por R$ ${price}`;
+        const url = `https://wa.me{phoneNumber}?text=${encodeURIComponent(message)}`;
+        
+        window.open(url, '_blank');
     }
 </script>
 
