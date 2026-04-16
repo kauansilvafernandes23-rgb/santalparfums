@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Produto | Santal Parfums</title>
+    <style>
+        :root { --gold: #c5a028; --black: #111; --white: #fff; }
+        body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--black); margin: 0; padding: 20px; }
+        
+        .product-page { max-width: 1000px; margin: auto; display: flex; gap: 40px; flex-wrap: wrap; }
+        .product-image { flex: 1; min-width: 300px; border: 1px solid #eee; }
+        .product-image img { width: 100%; display: block; }
+        
+        .product-details { flex: 1; min-width: 300px; }
+        h1 { font-size: 28px; text-transform: uppercase; letter-spacing: 1px; }
+        .brand { color: #888; text-transform: uppercase; font-size: 14px; margin-bottom: 10px; }
+        
+        .price-tag { font-size: 32px; font-weight: bold; color: var(--gold); margin: 20px 0; }
+        
+        .selector-label { font-weight: bold; margin-bottom: 10px; display: block; }
+        select { width: 100%; padding: 12px; border: 1px solid #ccc; font-size: 16px; outline: none; cursor: pointer; }
+        select:focus { border-color: var(--gold); }
+
+        .btn-cart { background: var(--black); color: var(--gold); width: 100%; padding: 18px; border: none; 
+                    font-weight: bold; text-transform: uppercase; margin-top: 25px; cursor: pointer; transition: 0.3s; }
+        .btn-cart:hover { background: #333; }
+
+        .shipping-info { margin-top: 20px; font-size: 13px; color: #666; border-top: 1px solid #eee; padding-top: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="product-page">
+    <div class="product-image">
+        <!-- Substitua pelo link da imagem do perfume -->
+        <img src="https://placeholder.com" alt="Perfume">
+    </div>
+
+    <div class="product-details">
+        <div class="brand">Parfums de Marly</div>
+        <h1>Layton - Royal Essence</h1>
+        
+        <p>Escolha o tamanho desejado (Decant ou Lacrado):</p>
+        
+        <label class="selector-label">Volume:</label>
+        <select id="size-selector" onchange="updatePrice()">
+            <option value="45.00" data-size="5ml">Decant 5ml - R$ 45,00</option>
+            <option value="85.00" data-size="10ml">Decant 10ml - R$ 85,00</option>
+            <option value="120.00" data-size="15ml">Decant 15ml - R$ 120,00</option>
+            <option value="155.00" data-size="20ml">Decant 20ml - R$ 155,00</option>
+            <option value="1890.00" data-size="100ml">Frasco Lacrado 100ml - R$ 1.890,00</option>
+        </select>
+
+        <div class="price-tag" id="display-price">R$ 45,00</div>
+
+        <button class="btn-cart">Adicionar à Sacola</button>
+
+        <div class="shipping-info">
+            🚚 Enviamos para todo o Brasil com Seguro.<br>
+            ✨ Garantia de Originalidade Santal Parfums.
+        </div>
+    </div>
+</div>
+
+<script>
+    function updatePrice() {
+        const selector = document.getElementById('size-selector');
+        const price = selector.value;
+        document.getElementById('display-price').innerText = "R$ " + parseFloat(price).toLocaleString('pt-BR', {minimumFractionDigits: 2});
+    }
+</script>
+
+</body>
+</html>
